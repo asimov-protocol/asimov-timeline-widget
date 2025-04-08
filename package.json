@@ -1,7 +1,7 @@
 {
   "name": "asimov-timeline-widget",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.",
   "type": "module",
   "files": ["dist"],
   "main": "./dist/asimov-timeline-widget.js",
@@ -40,5 +40,9 @@
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
     "vite-plugin-dts": "^4.5.3"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

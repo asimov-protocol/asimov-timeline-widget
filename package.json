@@ -1,8 +1,12 @@
 {
   "name": "asimov-timeline-widget",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/asimov-timeline-widget.js",
+  "module": "./dist/asimov-timeline-widget.js",
+  "types": "./dist/main.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

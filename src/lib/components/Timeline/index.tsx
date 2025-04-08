@@ -99,5 +99,5 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
     return <div className="text-center">No valid timeline data found.</div>
   }
 
-  return <div ref={containerRef} className={`timeline-container h-lvh border-0 ${className}`} />
+  return <div ref={containerRef} className={`timeline-container ${className}`} />
 }

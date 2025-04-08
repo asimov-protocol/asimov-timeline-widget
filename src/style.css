@@ -1,57 +1,57 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-gGray-100: #f6f6f6;
-  --color-gGray-300: #b3b3b3;
-  --color-gGray-400: #818181;
-  --color-gGray-500: #555555;
-  --color-sSlate-100: #e6e9f0;
-  --color-sSlate-200: #b5bed1;
-  --color-sSlate-300: #6a7ca2;
-  --color-sSlate-400: #395183;
-  --color-sSlate-600: #072564;
-  --color-sSlate-800: #04163c;
-  --color-sSlate-900: #05122e;
-  --color-oOrange-500: #f37021;
-}
-
 .timeline-container {
-  background-color: var(--color-sSlate-900);
-  color: var(--color-gGray-100);
+  background-color: var(--timeline-container-bg, #05122e);
+  color: var(--timeline-container-color, #f6f6f6);
+  border: var(--timeline-container-border, none);
 }
 
-.timeline-container .vis-timeline,
-.timeline-container .vis-foreground,
+/* .vis-timeline */
+.timeline-container .vis-timeline {
+  background-color: var(--timeline-vis-timeline-bg, #05122e);
+  color: var(--timeline-vis-timeline-color, #f6f6f6);
+  border: var(--timeline-vis-timeline-border, none);
+}
+
+/* .vis-foreground */
+.timeline-container .vis-foreground {
+  background-color: var(--timeline-vis-foreground-bg, #05122e);
+  color: var(--timeline-vis-foreground-color, #f6f6f6);
+  border: var(--timeline-vis-foreground-border, none);
+}
+
+/* .vis-background */
 .timeline-container .vis-background {
-  background-color: var(--color-sSlate-900);
-  color: var(--color-gGray-100);
-  border: none;
+  background-color: var(--timeline-vis-background-bg, #05122e);
+  color: var(--timeline-vis-background-color, #f6f6f6);
+  border: var(--timeline-vis-background-border, none);
 }
 
 .timeline-container .vis-time-axis .vis-text {
-  color: var(--color-gray-300);
+  color: var(--timeline-axis-text-color, #b3b3b3);
 }
 
+/* Time axis background */
 .timeline-container .vis-time-axis.vis-background {
-  background-color: var(--color-sSlate-800);
+  background-color: var(--timeline-axis-bg, #04163c);
 }
 
 .timeline-container .vis-item {
-  background-color: var(--color-sSlate-800);
-  color: var(--color-gGray-100);
-  border: 1px solid var(--color-sSlate-300);
+  background-color: var(--timeline-item-bg, #04163c);
+  color: var(--timeline-item-color, #f6f6f6);
+  border: 1px solid var(--timeline-item-border, #6a7ca2);
 }
 
 .timeline-container .vis-item:hover {
-  border-color: var(--color-oOrange-500);
+  border-color: var(--timeline-item-hover-border, #f37021);
 }
 
 .timeline-container .vis-item.vis-selected {
-  border-color: var(--color-oOrange-500);
-  color: white;
-  background-color: var(--color-oOrange-500);
+  border-color: var(--timeline-item-selected-border, #f37021);
+  color: var(--timeline-item-selected-color, #ffffff);
+  background-color: var(--timeline-item-selected-bg, #f37021);
 }
 
 .timeline-container .vis-current-time {
-  background-color: var(--color-oOrange-500);
+  background-color: var(--timeline-current-time-bg, #f37021);
 }

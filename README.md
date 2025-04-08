@@ -4,6 +4,9 @@ A modular React component that transforms SPARQL data into [vis-timeline](https:
 
 > **Note:** This package isn’t published to npm. You can install it directly from GitHub.
 
+![Timeline](https://github.com/user-attachments/assets/a8c6c9ff-ab6e-4936-927f-352e01cabb9b)
+
+
 ### Installation from GitHub
 
 ```bash

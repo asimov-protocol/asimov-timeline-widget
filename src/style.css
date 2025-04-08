@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-gGray-100: #f6f6f6;
+  --color-gGray-300: #b3b3b3;
+  --color-gGray-400: #818181;
+  --color-gGray-500: #555555;
+  --color-sSlate-100: #e6e9f0;
+  --color-sSlate-200: #b5bed1;
+  --color-sSlate-300: #6a7ca2;
+  --color-sSlate-400: #395183;
+  --color-sSlate-600: #072564;
+  --color-sSlate-800: #04163c;
+  --color-sSlate-900: #05122e;
+  --color-oOrange-500: #f37021;
+}
+
+.timeline-container {
+  background-color: var(--color-sSlate-900);
+  color: var(--color-gGray-100);
+}
+
+.timeline-container .vis-timeline,
+.timeline-container .vis-foreground,
+.timeline-container .vis-background {
+  background-color: var(--color-sSlate-900);
+  color: var(--color-gGray-100);
+  border: none;
+}
+
+.timeline-container .vis-time-axis .vis-text {
+  color: var(--color-gray-300);
+}
+
+.timeline-container .vis-time-axis.vis-background {
+  background-color: var(--color-sSlate-800);
+}
+
+.timeline-container .vis-item {
+  background-color: var(--color-sSlate-800);
+  color: var(--color-gGray-100);
+  border: 1px solid var(--color-sSlate-300);
+}
+
+.timeline-container .vis-item:hover {
+  border-color: var(--color-oOrange-500);
+}
+
+.timeline-container .vis-item.vis-selected {
+  border-color: var(--color-oOrange-500);
+  color: white;
+  background-color: var(--color-oOrange-500);
+}
+
+.timeline-container .vis-current-time {
+  background-color: var(--color-oOrange-500);
+}

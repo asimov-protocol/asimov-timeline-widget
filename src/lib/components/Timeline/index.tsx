@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useCallback } from 'react'
 import { DataSet } from 'vis-data'
 import { Timeline, TimelineOptions, TimelineItem } from 'vis-timeline/esnext'
-import { canAnyRowBeTimeline, SparqlBinding } from './utils'
+import { type SparqlBinding, canAnyRowBeTimeline, isDateLikeField } from './utils'
 import 'vis-timeline/styles/vis-timeline-graph2d.min.css'
 import '../../../style.css'
 
 /**
  * TimelineViewProps describes all configurable properties for the TimelineView.
  *
- * @property {SparqlBinding[]} sparqlData      An array of SPARQL bindings to parse into timeline items.
+ * @property {SparqlBinding[]} data      An array of SPARQL bindings to parse into timeline items.
  * @property {string} [className]              Optional CSS classes for styling the timeline container.
  * @property {TimelineOptions} [timelineOptions] Additional options for vis-timeline (e.g., selectable, orientation).
  * @property {(itemId: number | string, event: Event) => void} [onNodeClick]
@@ -16,7 +16,7 @@ import '../../../style.css'
  *                                             Receives the item’s ID and the click event.
  */
 export interface TimelineViewProps {
-  sparqlData?: SparqlBinding[]
+  data?: SparqlBinding[]
   className?: string
   timelineOptions?: TimelineOptions
   onNodeClick?: (itemId: number | string, event: Event) => void
@@ -27,29 +27,18 @@ export interface TimelineViewProps {
  * allowing timeline customization and item-click handling.
  */
 export const TimelineView: React.FC<TimelineViewProps> = ({
-  sparqlData,
+  data,
   className = '',
   timelineOptions,
   onNodeClick,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Helper to detect if a SPARQL field is date-like.
-  function isDateLikeField(field: any): boolean {
-    if (!field || typeof field !== 'object') return false
-    if (field.type !== 'literal') return false
-    const { value, datatype } = field
-    if (!datatype) return false
-    const isDateDatatype = datatype.includes('dateTime') || datatype.includes('date')
-    if (!isDateDatatype) return false
-    const dt = new Date(value)
-    return !isNaN(dt.getTime())
-  }
-
   // Convert SPARQL bindings to timeline items
   const transformBindingsToVisItems = useCallback((bindings: SparqlBinding[]): TimelineItem[] => {
     return bindings
       .map((row, index) => {
+        // Find a date-like field (used for 'start')
         const dateField = Object.values(row).find((field) => isDateLikeField(field))
         if (!dateField) return null
 
@@ -61,7 +50,12 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
         }
         if (isNaN(dateValue.getTime())) return null
 
-        const title = row.title?.value || '(No title)'
+        // Instead of relying on a "title" key, grab the first literal field that isn't a date
+        const possibleTitleField = Object.values(row).find(
+          (field) => field.type === 'literal' && !isDateLikeField(field)
+        )
+        const title = possibleTitleField?.value || '(No title)'
+
         return {
           id: index + 1,
           content: title,
@@ -72,7 +66,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
   }, [])
 
   useEffect(() => {
-    const bindings = sparqlData ?? []
+    const bindings = data ?? []
     const items = transformBindingsToVisItems(bindings)
 
     if (!items.length || !containerRef.current) return
@@ -93,9 +87,9 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
     return () => {
       timelineInstance.destroy()
     }
-  }, [sparqlData, timelineOptions, onNodeClick, transformBindingsToVisItems])
+  }, [data, timelineOptions, onNodeClick, transformBindingsToVisItems])
 
-  if (!sparqlData?.length || !canAnyRowBeTimeline(sparqlData)) {
+  if (!data?.length || !canAnyRowBeTimeline(data)) {
     return <div className="text-center">No valid timeline data found.</div>
   }
 

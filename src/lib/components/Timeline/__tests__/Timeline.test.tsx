@@ -15,18 +15,18 @@ describe('TimelineView', () => {
   })
 
   it('renders "No valid timeline data found." when there is no dateTime data provided', () => {
-    render(<TimelineView sparqlData={invalidTimelineData} />)
+    render(<TimelineView data={invalidTimelineData} />)
     expect(screen.getByText(/No valid timeline data found\./i)).toBeInTheDocument()
   })
 
   it('renders items when valid SPARQL data is provided', () => {
-    render(<TimelineView sparqlData={validTimelineData} />)
+    render(<TimelineView data={validTimelineData} />)
     expect(screen.queryByText(/No valid timeline data found\./i)).not.toBeInTheDocument()
   })
 
   it('calls onNodeClick when timeline item is clicked', () => {
     const handleNodeClick = vi.fn()
-    render(<TimelineView sparqlData={validTimelineDataCompact} onNodeClick={handleNodeClick} />)
+    render(<TimelineView data={validTimelineDataCompact} onNodeClick={handleNodeClick} />)
     // Simulate a click on the timeline item. In a real scenario, you might need more elaboration:
     // e.g., mocking Timeline or verifying DOM changes that reflect a click.
     // For demonstration, call the handler directly:

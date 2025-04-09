@@ -1,7 +1,7 @@
 {
   "name": "asimov-timeline-widget",
   "private": true,
-  "version": "1.0.",
+  "version": "1.0.1",
   "type": "module",
   "files": ["dist"],
   "main": "./dist/asimov-timeline-widget.js",
@@ -15,8 +15,6 @@
     "test": "vitest run --silent"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "vis-data": "^7.1.9",
     "vis-timeline": "^7.7.3",
     "vitest": "^3.1.1"

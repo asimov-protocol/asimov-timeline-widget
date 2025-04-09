@@ -23,7 +23,7 @@ import 'asimov-timeline-widget/dist/asimov-timeline-widget.css'
 export function MyTimeline() {
   return (
     <TimelineView
-      sparqlData={[]} // Provide SPARQL data
+      data={[]} // Provide SPARQL data
     />
   )
 }
@@ -34,7 +34,7 @@ export function MyTimeline() {
 
 | Prop Name       | Type                                                                                  | Default Value        | Required? | Description                                                                                                                                                       |
 |-----------------|---------------------------------------------------------------------------------------|----------------------|:--------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `sparqlData`    | `SparqlBinding[]`                                                                     | `undefined`         |    Yes     | Array of SPARQL bindings to parse into timeline items. If not provided or no valid date fields exist, displays "No valid timeline data found."                   |
+| `data`    | `SparqlBinding[]`                                                                     | `undefined`         |    Yes     | Array of SPARQL bindings to parse into timeline items. If not provided or no valid date fields exist, displays "No valid timeline data found."                   |
 | `className`     | `string`                                                                              | `""`                |    No     | Additional CSS class names for the timeline container                                                                                                            |
 | `timelineOptions` | [`TimelineOptions`](https://visjs.github.io/vis-timeline/docs/timeline/#Styles) | `{ selectable: true }` |    No     | Additional options for [vis-timeline](https://github.com/visjs/vis-timeline), merged with default timeline options                                               |
 | `onNodeClick`    | `(itemId: number \| string, event: Event) => void`                                   | `undefined`         |    No     | Callback fired on item click. Receives the item’s ID and the click event                                                                                          |

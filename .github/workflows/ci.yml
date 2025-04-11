@@ -8,4 +8,4 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   project-build-test:
-    uses: asimov-protocol/temp-ci/.github/workflows/npm-ci.yml@v1.0
+    uses: asimov-protocol/.github/workflows/npm-ci.yml@v1.0

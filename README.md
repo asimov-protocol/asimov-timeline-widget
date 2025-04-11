@@ -1,11 +1,12 @@
 # ASIMOV Timeline Widget
 
+[![CI](https://github.com/asimov-protocol/asimov-timeline-widget/actions/workflows/ci.yml/badge.svg)](https://github.com/asimov-protocol/asimov-timeline-widget/actions/workflows/ci.yml)
+
 A modular React component that transforms SPARQL data into [vis-timeline](https://github.com/visjs/vis-timeline) items, allowing timeline customization and item-click handling.
 
 > **Note:** This package isn’t published to npm. You can install it directly from GitHub.
 
 ![Timeline](https://github.com/user-attachments/assets/a8c6c9ff-ab6e-4936-927f-352e01cabb9b)
-
 
 ### Installation from GitHub
 

@@ -11,6 +11,7 @@ export default defineConfig({
     tailwindcss(),
     dts({
       tsconfigPath: './tsconfig.app.json',
+      exclude: ['src/App.tsx', 'src/main.tsx', 'src/index.css'],
     }),
   ],
   build: {

@@ -92,3 +92,15 @@ To override these variables, simply define them in your own stylesheet at a high
   --timeline-item-border: #ffa726;         /* item border color */
   --timeline-current-time-bg: #e91e63;     /* current time line color */
 }
+```
+
+## Local Development
+
+If you’d like to work with this repository directly, simply clone it and install its dependencies. Then, you can spin up the development server with the following commands:
+
+```bash
+git clone https://github.com/asimov-protocol/asimov-timeline-widget.git
+cd asimov-timeline-widget
+npm install
+npm run dev
+```

@@ -3,7 +3,7 @@ import { DataSet } from 'vis-data'
 import { Timeline, TimelineOptions, TimelineItem } from 'vis-timeline/esnext'
 import { type SparqlBinding, canAnyRowBeTimeline, isDateLikeField } from './utils'
 import 'vis-timeline/styles/vis-timeline-graph2d.min.css'
-import '../../../style.css'
+import './style.css'
 
 /**
  * TimelineViewProps describes all configurable properties for the TimelineView.

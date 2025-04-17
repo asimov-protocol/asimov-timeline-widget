@@ -101,6 +101,7 @@ If you’d like to work with this repository directly, simply clone it and insta
 ```bash
 git clone https://github.com/asimov-protocol/asimov-timeline-widget.git
 cd asimov-timeline-widget
+nvm use # optional
 npm install
 npm run dev
 ```

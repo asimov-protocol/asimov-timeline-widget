@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { TimelineView } from './lib/components/Timeline';
+import { TimelineView } from '../src/lib/Timeline';
 
 function App() {
   const [sparqlData, setSparqlData] = useState(null);
